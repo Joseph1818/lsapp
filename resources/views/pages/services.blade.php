@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends ('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+    <h1>{{$title}}</h1>
+    {{-- checking if there is at least one service in the array (count) --}}
+    @if(count($services) > 0) 
+        <ul>
+            @foreach($services as $service)
+            <li>{{$service}}</li>
+            @endforeach
+        </ul>
 
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-       <h1>Services</h1>
-       <p>This is the services page</p>
-    </body>
-</html>
+    @endif
+@endsection
